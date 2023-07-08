@@ -9,8 +9,8 @@ const pool = new Pool({
 
 await pool.connect();
 
-const text = "UPDATE curso SET fecha_termno = $1 WHERE codigo_curso = $2 RETURNING *";
-const values = ['08-07-2024', '0071'];
+const text = "DELETE FROM curso WHERE codigo_curso = $1 RETURNING *";
+const values = ['0074'];
 
 const res = await pool.query(text, values);
 console.log(res.rows);
