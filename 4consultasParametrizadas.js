@@ -9,6 +9,9 @@ const pool = new Pool({
 
 await pool.connect();
 
-const res = await pool.query('SELECT * FROM curso');
+const text = 'SELECT * FROM curso WHERE codigo_plan_formativo = $1';
+const values = ['A2'];
+
+const res = await pool.query(text, values);
 console.log(res.rows);
 await pool.end();
